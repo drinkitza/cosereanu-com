@@ -18,8 +18,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    position: relative;
-    z-index: 1;
 }
 
 /* Navigation */
@@ -168,50 +166,6 @@ h2 {
     opacity: 0.7;
 }
 
-/* Nature Decoration */
-.nature-decoration {
-    position: fixed;
-    right: 5%;
-    top: 0;
-    bottom: 0;
-    width: 300px;
-    pointer-events: none; /* So it doesn't interfere with clicking */
-    z-index: -1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.vines {
-    width: 100%;
-    height: 250px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.7;
-}
-
-.top-vines {
-    background-image: url('https://i.imgur.com/8ZyoGrC.png');
-    background-position: top right;
-}
-
-.bottom-vines {
-    background-image: url('https://i.imgur.com/xJwDiLT.png');
-    background-position: bottom right;
-    transform: scaleY(-1);
-}
-
-.waterfall {
-    flex-grow: 1;
-    width: 100px;
-    margin: 0 auto;
-    background-image: url('https://i.imgur.com/oj8iFLC.gif');
-    background-repeat: repeat-y;
-    background-size: contain;
-    background-position: center;
-    opacity: 0.6;
-}
-
 /* Footer */
 footer {
     padding: 40px 0;
@@ -234,18 +188,5 @@ footer {
     
     .nav-links {
         gap: 15px;
-    }
-    
-    .nature-decoration {
-        width: 150px;
-        opacity: 0.4; /* More transparent on mobile */
-    }
-    
-    .vines {
-        height: 150px;
-    }
-    
-    .waterfall {
-        width: 60px;
     }
 }
