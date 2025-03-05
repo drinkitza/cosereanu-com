@@ -22,6 +22,9 @@ function checkAuth() {
     // For demo purposes, we'll use localStorage
     isAuthenticated = localStorage.getItem('analytics_auth') === 'true';
     
+    // Get analytics content element
+    const analyticsContent = document.getElementById('analytics-content');
+    
     if (isAuthenticated) {
         // If authenticated, fetch real data
         fetchAnalyticsData();
@@ -29,20 +32,50 @@ function checkAuth() {
         if (authButton) {
             authButton.textContent = 'Sign Out';
         }
+        
+        // Remove blur effect
+        if (analyticsContent) {
+            analyticsContent.classList.remove('blur-content');
+            const overlay = analyticsContent.querySelector('.blur-overlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }
     } else {
         // If not authenticated, show demo data
         showDemoData();
+        
+        // Add blur effect
+        if (analyticsContent) {
+            analyticsContent.classList.add('blur-content');
+            const overlay = analyticsContent.querySelector('.blur-overlay');
+            if (overlay) {
+                overlay.style.display = 'flex';
+            }
+        }
     }
 }
 
 // Authentication function
 function authenticate() {
+    // Get analytics content element
+    const analyticsContent = document.getElementById('analytics-content');
+    
     if (isAuthenticated) {
         // Sign out
         localStorage.removeItem('analytics_auth');
         isAuthenticated = false;
         document.getElementById('auth-button').textContent = 'Authenticate';
         showDemoData();
+        
+        // Add blur effect
+        if (analyticsContent) {
+            analyticsContent.classList.add('blur-content');
+            const overlay = analyticsContent.querySelector('.blur-overlay');
+            if (overlay) {
+                overlay.style.display = 'flex';
+            }
+        }
     } else {
         // In a real implementation, this would redirect to Google OAuth
         // For demo purposes, we'll just set a flag in localStorage
@@ -50,6 +83,15 @@ function authenticate() {
         isAuthenticated = true;
         document.getElementById('auth-button').textContent = 'Sign Out';
         fetchAnalyticsData();
+        
+        // Remove blur effect
+        if (analyticsContent) {
+            analyticsContent.classList.remove('blur-content');
+            const overlay = analyticsContent.querySelector('.blur-overlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }
     }
 }
 

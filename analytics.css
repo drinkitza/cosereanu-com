@@ -110,6 +110,38 @@
     background-color: #004c99;
 }
 
+/* Blur effect for unauthenticated users */
+.blur-content {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.7;
+    position: relative;
+}
+
+.blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blur-message {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    max-width: 300px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .analytics-dashboard {
