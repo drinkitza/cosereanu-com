@@ -166,11 +166,20 @@ h2 {
     opacity: 0.7;
 }
 
-/* Analytics button */
-.analytics-button {
+/* Fixed buttons */
+.fixed-buttons {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+/* Analytics button */
+.analytics-button,
+.contact-button {
     background-color: #fff;
     color: #000;
     padding: 8px 15px;
@@ -180,10 +189,11 @@ h2 {
     font-family: 'Courier New', monospace;
     font-size: 14px;
     transition: all 0.3s ease;
-    z-index: 100;
+    text-align: center;
 }
 
-.analytics-button:hover {
+.analytics-button:hover,
+.contact-button:hover {
     background-color: #000;
     color: #fff;
 }

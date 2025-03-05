@@ -1,0 +1,141 @@
+/* Contact Page Styles */
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.contact-info h2 {
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.contact-item {
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+}
+
+.contact-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+.contact-value {
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-value:hover {
+    color: #0066cc;
+}
+
+.contact-form-container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.contact-form-container h2 {
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #666;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+.submit-button {
+    padding: 12px 24px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.submit-button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.form-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background-color: #e6f7e6;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.form-status.error {
+    display: block;
+    background-color: #fdecea;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        margin-bottom: 30px;
+    }
+}
