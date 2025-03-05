@@ -166,6 +166,28 @@ h2 {
     opacity: 0.7;
 }
 
+/* Analytics button */
+.analytics-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    color: #000;
+    padding: 8px 15px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.analytics-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
 /* Footer */
 footer {
     padding: 40px 0;
