@@ -107,14 +107,13 @@ function fetchAnalyticsData() {
     document.getElementById('avg-duration').textContent = '2:34';
     
     // Show a message indicating this is sample data
-    const setupSection = document.querySelector('.setup-instructions');
+    const setupSection = document.querySelector('.analytics-setup');
     const dataNotice = document.createElement('p');
     dataNotice.className = 'data-notice';
-    dataNotice.innerHTML = '<strong>Note:</strong> Showing sample data for demonstration. Real data will be available in your Google Analytics dashboard.';
-    dataNotice.style.backgroundColor = '#fff3cd';
-    dataNotice.style.padding = '10px';
-    dataNotice.style.borderRadius = '4px';
-    dataNotice.style.marginTop = '20px';
+    dataNotice.innerHTML = 'Showing sample data for demonstration';
+    dataNotice.style.fontSize = '14px';
+    dataNotice.style.marginTop = '10px';
+    dataNotice.style.opacity = '0.7';
     
     // Remove any existing notice before adding a new one
     const existingNotice = document.querySelector('.data-notice');

@@ -92,22 +92,41 @@
     transform: scaleX(1);
 }
 
+/* Authentication section */
+.analytics-setup {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.analytics-setup h2 {
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+}
+
 /* Authentication button */
 .auth-button {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
+    padding: 10px 30px;
     background-color: #0066cc;
     color: white;
     border: none;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .auth-button:hover {
     background-color: #004c99;
+    transform: translateY(-2px);
+}
+
+.data-notice {
+    font-family: 'Courier New', monospace;
+    font-style: italic;
 }
 
 /* Blur effect for unauthenticated users */
