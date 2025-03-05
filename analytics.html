@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Analytics - Nico Cosereanu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="analytics.css">
+    
+    <!-- Google Analytics 4 Tracking Code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDP8S84X9G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TDP8S84X9G');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <a href="index.html">nc</a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">home</a>
+                    <a href="analytics.html" class="active">analytics</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="content">
+                <section id="analytics" class="section">
+                    <h1>website analytics</h1>
+                    <p class="bio">
+                        Track visitor data and engagement metrics for cosereanu.com
+                    </p>
+                </section>
+
+                <section class="analytics-dashboard">
+                    <div class="analytics-card">
+                        <h3>Active Users</h3>
+                        <div id="active-users" class="analytics-value">--</div>
+                        <div class="analytics-description">Current visitors on site</div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Total Visitors</h3>
+                        <div id="total-visitors" class="analytics-value">--</div>
+                        <div class="analytics-description">Past 30 days</div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Page Views</h3>
+                        <div id="page-views" class="analytics-value">--</div>
+                        <div class="analytics-description">Past 30 days</div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Avg. Session Duration</h3>
+                        <div id="avg-duration" class="analytics-value">--</div>
+                        <div class="analytics-description">In minutes</div>
+                    </div>
+                </section>
+
+                <section class="analytics-charts">
+                    <div class="chart-container">
+                        <h3>Visitors by Country</h3>
+                        <div id="country-chart" class="chart"></div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Visitors by Device</h3>
+                        <div id="device-chart" class="chart"></div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Traffic Sources</h3>
+                        <div id="source-chart" class="chart"></div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Visitors Over Time</h3>
+                        <div id="time-chart" class="chart"></div>
+                    </div>
+                </section>
+
+                <section class="analytics-setup">
+                    <h2>analytics setup</h2>
+                    <div class="setup-instructions">
+                        <p>This dashboard uses Google Analytics 4 to track website traffic. To view your analytics:</p>
+                        <ol>
+                            <li>Sign in to your <a href="https://analytics.google.com" target="_blank" class="subtle-link">Google Analytics account</a></li>
+                            <li>Navigate to your cosereanu.com property</li>
+                            <li>For more detailed reports, use the Google Analytics dashboard</li>
+                        </ol>
+                        <p class="note">* This page requires authentication and will only display data to authorized users.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p> 2025 nico cosereanu</p>
+        </footer>
+    </div>
+
+    <!-- Google Charts for data visualization -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <!-- Analytics dashboard script -->
+    <script src="analytics.js"></script>
+</body>
+</html>
