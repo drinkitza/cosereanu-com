@@ -10,12 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     checkAuth();
     
     // Add authentication button event listener
-    const authSection = document.querySelector('.analytics-setup');
-    const authButton = document.createElement('button');
-    authButton.textContent = 'Authenticate';
-    authButton.className = 'auth-button';
-    authButton.addEventListener('click', authenticate);
-    authSection.appendChild(authButton);
+    const authButton = document.getElementById('auth-button');
+    if (authButton) {
+        authButton.addEventListener('click', authenticate);
+    }
 });
 
 // Check if user is authenticated
@@ -27,7 +25,10 @@ function checkAuth() {
     if (isAuthenticated) {
         // If authenticated, fetch real data
         fetchAnalyticsData();
-        document.querySelector('.auth-button').textContent = 'Sign Out';
+        const authButton = document.getElementById('auth-button');
+        if (authButton) {
+            authButton.textContent = 'Sign Out';
+        }
     } else {
         // If not authenticated, show demo data
         showDemoData();
@@ -40,14 +41,14 @@ function authenticate() {
         // Sign out
         localStorage.removeItem('analytics_auth');
         isAuthenticated = false;
-        document.querySelector('.auth-button').textContent = 'Authenticate';
+        document.getElementById('auth-button').textContent = 'Authenticate';
         showDemoData();
     } else {
         // In a real implementation, this would redirect to Google OAuth
         // For demo purposes, we'll just set a flag in localStorage
         localStorage.setItem('analytics_auth', 'true');
         isAuthenticated = true;
-        document.querySelector('.auth-button').textContent = 'Sign Out';
+        document.getElementById('auth-button').textContent = 'Sign Out';
         fetchAnalyticsData();
     }
 }
@@ -55,14 +56,33 @@ function authenticate() {
 // Fetch analytics data from Google Analytics API
 function fetchAnalyticsData() {
     // In a real implementation, this would fetch data from the Google Analytics API
-    // For demo purposes, we'll use the same demo data but indicate it's real
+    // For demo purposes, we'll use sample data
     
+    // Update dashboard metrics with sample data
     document.getElementById('active-users').textContent = '3';
     document.getElementById('total-visitors').textContent = '542';
     document.getElementById('page-views').textContent = '1,247';
     document.getElementById('avg-duration').textContent = '2:34';
     
-    // Update charts with "real" data
+    // Show a message indicating this is sample data
+    const setupSection = document.querySelector('.setup-instructions');
+    const dataNotice = document.createElement('p');
+    dataNotice.className = 'data-notice';
+    dataNotice.innerHTML = '<strong>Note:</strong> Showing sample data for demonstration. Real data will be available in your Google Analytics dashboard.';
+    dataNotice.style.backgroundColor = '#fff3cd';
+    dataNotice.style.padding = '10px';
+    dataNotice.style.borderRadius = '4px';
+    dataNotice.style.marginTop = '20px';
+    
+    // Remove any existing notice before adding a new one
+    const existingNotice = document.querySelector('.data-notice');
+    if (existingNotice) {
+        existingNotice.remove();
+    }
+    
+    setupSection.appendChild(dataNotice);
+    
+    // Update charts with sample data
     drawCharts(true);
 }
 
