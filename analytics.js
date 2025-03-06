@@ -60,38 +60,43 @@ function checkAuth() {
 function authenticate() {
     // Get analytics content element
     const analyticsContent = document.getElementById('analytics-content');
+    const authButton = document.getElementById('auth-button');
+    
+    if (!analyticsContent || !authButton) {
+        console.error('Required elements not found');
+        return;
+    }
     
     if (isAuthenticated) {
         // Sign out
         localStorage.removeItem('analytics_auth');
         isAuthenticated = false;
-        document.getElementById('auth-button').textContent = 'Authenticate';
+        authButton.textContent = 'Authenticate';
         showDemoData();
         
         // Add blur effect
-        if (analyticsContent) {
-            analyticsContent.classList.add('blur-content');
-            const overlay = analyticsContent.querySelector('.blur-overlay');
-            if (overlay) {
-                overlay.style.display = 'flex';
-            }
+        analyticsContent.classList.add('blur-content');
+        const overlay = analyticsContent.querySelector('.blur-overlay');
+        if (overlay) {
+            overlay.style.display = 'flex';
         }
     } else {
-        // In a real implementation, this would redirect to Google OAuth
-        // For demo purposes, we'll just set a flag in localStorage
+        // Simple authentication for demo purposes
+        // In a real app, you would use a more secure method
         localStorage.setItem('analytics_auth', 'true');
         isAuthenticated = true;
-        document.getElementById('auth-button').textContent = 'Sign Out';
+        authButton.textContent = 'Sign Out';
         fetchAnalyticsData();
         
         // Remove blur effect
-        if (analyticsContent) {
-            analyticsContent.classList.remove('blur-content');
-            const overlay = analyticsContent.querySelector('.blur-overlay');
-            if (overlay) {
-                overlay.style.display = 'none';
-            }
+        analyticsContent.classList.remove('blur-content');
+        const overlay = analyticsContent.querySelector('.blur-overlay');
+        if (overlay) {
+            overlay.style.display = 'none';
         }
+        
+        // Scroll to analytics content
+        analyticsContent.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
