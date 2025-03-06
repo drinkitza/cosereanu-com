@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Check if user is authenticated
 function checkAuth() {
-    // In a real implementation, this would check for a valid session
-    // For demo purposes, we'll use localStorage
-    isAuthenticated = localStorage.getItem('analytics_auth') === 'true';
+    // Check for authentication token in localStorage
+    isAuthenticated = localStorage.getItem('analytics_auth_token') === 'nico_authenticated';
     
     // Get analytics content element
     const analyticsContent = document.getElementById('analytics-content');
@@ -69,7 +68,7 @@ function authenticate() {
     
     if (isAuthenticated) {
         // Sign out
-        localStorage.removeItem('analytics_auth');
+        localStorage.removeItem('analytics_auth_token');
         isAuthenticated = false;
         authButton.textContent = 'Authenticate';
         showDemoData();
@@ -81,22 +80,29 @@ function authenticate() {
             overlay.style.display = 'flex';
         }
     } else {
-        // Simple authentication for demo purposes
-        // In a real app, you would use a more secure method
-        localStorage.setItem('analytics_auth', 'true');
-        isAuthenticated = true;
-        authButton.textContent = 'Sign Out';
-        fetchAnalyticsData();
+        // Ask for password
+        const password = prompt('Enter password to authenticate:');
         
-        // Remove blur effect
-        analyticsContent.classList.remove('blur-content');
-        const overlay = analyticsContent.querySelector('.blur-overlay');
-        if (overlay) {
-            overlay.style.display = 'none';
+        // Check if password is correct (simple authentication)
+        // In a real production app, this would be done server-side
+        if (password === '8622798006') { // Using your phone number as the password
+            localStorage.setItem('analytics_auth_token', 'nico_authenticated');
+            isAuthenticated = true;
+            authButton.textContent = 'Sign Out';
+            fetchAnalyticsData();
+            
+            // Remove blur effect
+            analyticsContent.classList.remove('blur-content');
+            const overlay = analyticsContent.querySelector('.blur-overlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+            
+            // Scroll to analytics content
+            analyticsContent.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            alert('Authentication failed. Incorrect password.');
         }
-        
-        // Scroll to analytics content
-        analyticsContent.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
