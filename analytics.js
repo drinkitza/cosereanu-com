@@ -85,7 +85,7 @@ function authenticate() {
         
         // Check if password is correct (simple authentication)
         // In a real production app, this would be done server-side
-        if (password === '8622798006') { // Using your phone number as the password
+        if (password === 'kneeco') { // Using "kneeco" as the password
             localStorage.setItem('analytics_auth_token', 'nico_authenticated');
             isAuthenticated = true;
             authButton.textContent = 'Sign Out';
